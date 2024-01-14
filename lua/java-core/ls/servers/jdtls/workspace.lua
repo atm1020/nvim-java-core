@@ -14,9 +14,9 @@ local env = {
 function M.get_default_workspace()
 	local cache_dir = env.XDG_CACHE_HOME and env.XDG_CACHE_HOME
 		or join(env.HOME, '.cache')
-
+  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 	local path =
-		join(cache_dir, 'nvim', 'jdtls', 'workspaces', 'common-workspace')
+		join(cache_dir, 'nvim', 'jdtls', 'workspaces', 'common-workspace', project_name)
 
 	return path
 end
